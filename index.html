@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Life on Earth | A Celebration of Biodiversity</title>
+    <style>
+        :root {
+            --bg: #fafaf8;
+            --text: #2c2c2a;
+            --accent: #4a7c59;
+            --accent-warm: #b5835a;
+            --accent-ocean: #3a6b7c;
+            --line: #e0ded8;
+            --card-bg: #f4f3ef;
+            --subtle: #6b6b65;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--bg);
+            color: var(--text);
+            font-family: "Georgia", "Times New Roman", "Palatino Linotype", "Book Antiqua", serif;
+            line-height: 1.75;
+            letter-spacing: 0.01em;
+            max-width: 780px;
+            margin: 0 auto;
+            padding: 3rem 1.5rem 5rem;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* ——— Header ——— */
+        header {
+            text-align: center;
+            padding: 3rem 0 2.5rem;
+            border-bottom: 1px solid var(--line);
+            margin-bottom: 2.5rem;
+        }
+
+        .title-word {
+            display: block;
+            font-size: clamp(2.2rem, 5vw, 3.6rem);
+            font-weight: normal;
+            letter-spacing: 0.06em;
+            color: var(--text);
+            line-height: 1.1;
+        }
+        .title-word + .title-word {
+            margin-top: -0.1em;
+        }
+        .title-word.earth {
+            font-size: clamp(3rem, 6.5vw, 4.8rem);
+            color: var(--accent);
+            letter-spacing: 0.08em;
+            font-variant: small-caps;
+        }
+
+        .subtitle {
+            margin-top: 1.4rem;
+            font-style: italic;
+            color: var(--subtle);
+            font-size: 1.15rem;
+            letter-spacing: 0.03em;
+        }
+
+        .ornament {
+            display: block;
+            margin: 1.6rem auto 0;
+            width: 60px;
+            height: 1px;
+            background: var(--accent);
+            position: relative;
+        }
+        .ornament::after {
+            content: "•";
+            position: absolute;
+            top: -0.55em;
+            left: 50%;
+            transform: translateX(-50%);
+            color: var(--accent);
+            font-size: 0.7rem;
+            background: var(--bg);
+            padding: 0 8px;
+        }
+
+        /* ——— Sections ——— */
+        section {
+            margin: 3rem 0;
+        }
+
+        h2 {
+            font-size: 1.55rem;
+            font-weight: normal;
+            letter-spacing: 0.05em;
+            color: var(--accent);
+            margin-bottom: 1.1rem;
+            font-variant: small-caps;
+            position: relative;
+            display: inline-block;
+        }
+        h2::after {
+            content: "";
+            display: block;
+            width: 40%;
+            height: 1px;
+            background: var(--line);
+            margin-top: 0.35rem;
+        }
+
+        h3 {
+            font-size: 1.15rem;
+            font-weight: normal;
+            letter-spacing: 0.04em;
+            margin: 1.6rem 0 0.5rem;
+            color: var(--text);
+            font-style: italic;
+        }
+
+        p {
+            margin-bottom: 1rem;
+            text-align: justify;
+            hyphens: auto;
+            font-size: 1.05rem;
+        }
+
+        /* ——— Kingdom Cards ——— */
+        .kingdoms-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.2rem;
+            margin: 1.8rem 0;
+        }
+        @media (max-width: 550px) {
+            .kingdoms-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .kingdom-card {
+            background: var(--card-bg);
+            padding: 1.5rem 1.4rem 1.3rem;
+            border-left: 3px solid var(--accent);
+            border-radius: 0 4px 4px 0;
+            transition: border-color 0.2s;
+        }
+        .kingdom-card:nth-child(2) {
+            border-left-color: var(--accent-warm);
+        }
+        .kingdom-card:nth-child(3) {
+            border-left-color: var(--accent-ocean);
+        }
+        .kingdom-card:nth-child(4) {
+            border-left-color: #8b7a5c;
+        }
+        .kingdom-card:nth-child(5) {
+            border-left-color: #7a5c7a;
+        }
+
+        .kingdom-card .kingdom-name {
+            font-size: 1.2rem;
+            font-variant: small-caps;
+            letter-spacing: 0.06em;
+            margin-bottom: 0.4rem;
+            color: var(--text);
+        }
+        .kingdom-card .kingdom-desc {
+            font-size: 0.95rem;
+            color: var(--subtle);
+            line-height: 1.55;
+            text-align: left;
+            margin-bottom: 0;
+        }
+
+        /* ——— Blockquote ——— */
+        blockquote {
+            margin: 2.2rem 0;
+            padding: 1.5rem 2rem;
+            background: var(--card-bg);
+            border-left: none;
+            position: relative;
+            text-align: center;
+            font-style: italic;
+            color: var(--subtle);
+            letter-spacing: 0.02em;
+            font-size: 1.1rem;
+            border-radius: 3px;
+        }
+        blockquote::before {
+            content: "“";
+            font-size: 3.5rem;
+            color: var(--accent);
+            position: absolute;
+            top: -0.3rem;
+            left: 1rem;
+            line-height: 1;
+            opacity: 0.5;
+        }
+        blockquote .attribution {
+            display: block;
+            margin-top: 0.8rem;
+            font-style: normal;
+            font-size: 0.9rem;
+            letter-spacing: 0.04em;
+            color: var(--text);
+        }
+
+        /* ——— Ecosystem List ——— */
+        .ecosystem-list {
+            list-style: none;
+            padding: 0;
+            margin: 1.4rem 0;
+        }
+        .ecosystem-list li {
+            padding: 0.6rem 0;
+            border-bottom: 1px dotted var(--line);
+            display: flex;
+            align-items: baseline;
+            gap: 0.7rem;
+            font-size: 1.02rem;
+        }
+        .ecosystem-list li:last-child {
+            border-bottom: none;
+        }
+        .eco-icon {
+            color: var(--accent);
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+
+        /* ——— Stats Row ——— */
+        .stats-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin: 1.8rem 0;
+            justify-content: center;
+        }
+        .stat-item {
+            background: var(--card-bg);
+            padding: 1.2rem 1.6rem;
+            text-align: center;
+            border-radius: 3px;
+            min-width: 130px;
+            flex: 1 1 130px;
+        }
+        .stat-number {
+            display: block;
+            font-size: 2rem;
+            letter-spacing: 0.03em;
+            color: var(--accent);
+            line-height: 1.1;
+        }
+        .stat-label {
+            display: block;
+            font-size: 0.85rem;
+            color: var(--subtle);
+            letter-spacing: 0.04em;
+            margin-top: 0.3rem;
+            text-transform: uppercase;
+        }
+
+        /* ——— Footer ——— */
+        footer {
+            margin-top: 4rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--line);
+            text-align: center;
+            color: var(--subtle);
+            font-size: 0.9rem;
+            letter-spacing: 0.03em;
+        }
+        footer p {
+            text-align: center;
+            margin-bottom: 0.3rem;
+        }
+
+        /* ——— Links ——— */
+        a {
+            color: var(--accent);
+            text-decoration: none;
+            border-bottom: 1px dotted var(--accent);
+            transition: color 0.2s, border-color 0.2s;
+        }
+        a:hover {
+            color: #3a6547;
+            border-bottom-style: solid;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ==================== HEADER ==================== -->
+    <header>
+        <span class="title-word">The Living</span>
+        <span class="title-word earth">Earth</span>
+        <div class="ornament"></div>
+        <p class="subtitle">
+            A portrait of the planet's extraordinary biological tapestry —<br>
+            from the deepest ocean trench to the highest mountain peak.
+        </p>
+    </header>
+
+    <!-- ==================== INTRODUCTION ==================== -->
+    <section>
+        <h2>What Is Life on Earth?</h2>
+        <p>
+            Earth is the only known planet in the universe to harbour life. For over
+            <strong>3.7 billion years</strong>, living organisms have evolved, diversified, and
+            shaped the very atmosphere, oceans, and geology of our world. From microscopic
+            bacteria thriving in boiling hydrothermal vents to colossal blue whales gliding
+            through open oceans, the variety of form and function is staggering. Scientists
+            estimate that there are somewhere between <strong>8 and 10 million species</strong>
+            inhabiting the planet today — yet over eighty percent of them remain undiscovered
+            and unnamed by science.
+        </p>
+        <p>
+            Life does not simply inhabit Earth; it <em>is</em> Earth. Photosynthetic
+            cyanobacteria oxygenated the atmosphere two billion years ago, making complex
+            multicellular life possible. Forests regulate rainfall patterns across continents.
+            Coral reefs shelter a quarter of all marine species while covering less than one
+            percent of the ocean floor. Every living thing, no matter how small, plays a role
+            in the intricate web of existence.
+        </p>
+    </section>
+
+    <!-- ==================== KINGDOMS OF LIFE ==================== -->
+    <section>
+        <h2>The Five Kingdoms of Life</h2>
+        <p>
+            Biologists traditionally group all known life forms into five broad kingdoms,
+            each representing a fundamentally different strategy of survival and reproduction.
+        </p>
+
+        <div class="kingdoms-grid">
+            <div class="kingdom-card">
+                <div class="kingdom-name">🦠 Monera</div>
+                <p class="kingdom-desc">
+                    The most ancient and abundant kingdom. Bacteria and archaea are
+                    single-celled organisms without a nucleus. They inhabit every
+                    environment imaginable — soil, water, air, deep rock, and the
+                    bodies of other organisms. Some are pathogens, but most are
+                    essential decomposers and nutrient cyclers.
+                </p>
+            </div>
+            <div class="kingdom-card">
+                <div class="kingdom-name">🔬 Protista</div>
+                <p class="kingdom-desc">
+                    A diverse collection of mostly single-celled eukaryotes, including
+                    amoebae, algae, diatoms, and slime moulds. Protists are the
+                    foundation of aquatic food webs; photosynthetic phytoplankton
+                    produce over half of the world's oxygen.
+                </p>
+            </div>
+            <div class="kingdom-card">
+                <div class="kingdom-name">🍄 Fungi</div>
+                <p class="kingdom-desc">
+                    Neither plant nor animal, fungi are nature's great recyclers.
+                    Mushrooms, yeasts, and moulds break down dead organic matter
+                    and form symbiotic partnerships with plant roots through
+                    mycorrhizal networks — sometimes called the "Wood Wide Web."
+                </p>
+            </div>
+            <div class="kingdom-card">
+                <div class="kingdom-name">🌿 Plantae</div>
+                <p class="kingdom-desc">
+                    The green architects of terrestrial life. Plants harness sunlight
+                    through photosynthesis to build their bodies from carbon dioxide
+                    and water. From mosses and ferns to towering redwoods, they form
+                    the base of nearly every land-based food chain.
+                </p>
+            </div>
+            <div class="kingdom-card">
+                <div class="kingdom-name">🐾 Animalia</div>
+                <p class="kingdom-desc">
+                    Multicellular organisms that typically move, sense, and consume
+                    other life for energy. Spanning sponges, insects, fish, reptiles,
+                    birds, and mammals — animals exhibit astonishing behavioural
+                    complexity, from the dance of honeybees to the songs of whales.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== QUOTE ==================== -->
+    <blockquote>
+        "In the end, we will conserve only what we love; we will love only what we
+        understand; and we will understand only what we are taught."
+        <span class="attribution">— Baba Dioum, Senegalese conservationist</span>
+    </blockquote>
+
+    <!-- ==================== ECOSYSTEMS ==================== -->
+    <section>
+        <h2>Major Ecosystems of the Planet</h2>
+        <p>
+            An ecosystem is a community of living organisms interacting with each other
+            and their physical environment. Each biome supports a unique cast of species
+            adapted to its particular conditions.
+        </p>
+
+        <ul class="ecosystem-list">
+            <li>
+                <span class="eco-icon">🌊</span>
+                <span><strong>Marine Ecosystems</strong> — Oceans, coral reefs, estuaries, and the deep sea. Covering 71% of Earth's surface, they harbour life from microscopic plankton to the 30-metre blue whale.</span>
+            </li>
+            <li>
+                <span class="eco-icon">🌳</span>
+                <span><strong>Forests</strong> — Tropical rainforests, temperate woodlands, and boreal taiga. Forests are home to 80% of terrestrial biodiversity and act as the planet's lungs.</span>
+            </li>
+            <li>
+                <span class="eco-icon">🌾</span>
+                <span><strong>Grasslands & Savannas</strong> — Vast open landscapes dominated by grasses, supporting large herds of herbivores and their predators across Africa, Asia, the Americas, and Australia.</span>
+            </li>
+            <li>
+                <span class="eco-icon">🏜️</span>
+                <span><strong>Deserts</strong> — Arid regions where life clings tenaciously. Cacti store water for years; fennec foxes dissipate heat through enormous ears; seeds lie dormant for decades awaiting rain.</span>
+            </li>
+            <li>
+                <span class="eco-icon">❄️</span>
+                <span><strong>Polar & Tundra</strong> — The frozen frontiers. Lichens, mosses, and hardy animals like polar bears, penguins, and Arctic foxes endure some of the harshest conditions on Earth.</span>
+            </li>
+            <li>
+                <span class="eco-icon">🏞️</span>
+                <span><strong>Freshwater Ecosystems</strong> — Rivers, lakes, wetlands, and marshes. Though covering less than 1% of the planet's surface, they support over 10% of all known species.</span>
+            </li>
+        </ul>
+    </section>
+
+    <!-- ==================== BIODIVERSITY IN NUMBERS ==================== -->
+    <section>
+        <h2>Biodiversity in Numbers</h2>
+        <p style="text-align:center; margin-bottom:0.5rem;">
+            While exact figures remain elusive, these estimates give a sense of the
+            extraordinary richness of life:
+        </p>
+        <div class="stats-row">
+            <div class="stat-item">
+                <span class="stat-number">~8.7M</span>
+                <span class="stat-label">Total Eukaryotic Species</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number">~1.2M</span>
+                <span class="stat-label">Species Catalogued</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number">~80%</span>
+                <span class="stat-label">Still Undiscovered</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number">>50%</span>
+                <span class="stat-label">Oxygen from Oceans</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== WHY IT MATTERS ==================== -->
+    <section>
+        <h2>Why Biodiversity Matters</h2>
+        <p>
+            Biodiversity is not a luxury — it is the foundation of human well-being.
+            Healthy ecosystems purify our water, pollinate our crops, regulate our
+            climate, and provide the genetic reservoir from which we derive medicines,
+            foods, and materials. The aspirin in your cabinet traces its origins to
+            willow bark; life-saving cancer drugs come from rainforest plants and
+            marine sponges.
+        </p>
+        <p>
+            Yet the tapestry is fraying. Habitat destruction, climate change,
+            pollution, and overexploitation are driving what many scientists call the
+            <strong>sixth mass extinction</strong>. Species are vanishing at rates
+            hundreds to thousands of times higher than the natural background. The
+            loss of any single thread weakens the whole. Conservation is not merely an
+            act of kindness toward other species — it is an act of self-preservation
+            for humanity.
+        </p>
+        <p>
+            The story of life on Earth is still being written. Every species
+            discovered, every habitat restored, every child inspired by the natural
+            world adds a hopeful sentence to that ongoing narrative. The planet's
+            biological inheritance is the greatest treasure we possess — and it
+            belongs to all generations, past and future.
+        </p>
+    </section>
+
+    <!-- ==================== FOOTER ==================== -->
+    <footer>
+        <p>
+            “Look deep into nature, and then you will understand everything better.”
+        </p>
+        <p style="font-size:0.8rem; margin-top:0.6rem; color:#999;">
+            &copy; 2024 &middot; A tribute to the living Earth &middot; All text for educational purposes.
+        </p>
+    </footer>
+
+</body>
+</html>
